@@ -50,7 +50,7 @@ const pizza =
     Use dot notation to access the value.
 */
 
-console.log(pizza.popularity)
+// console.log(pizza.popularity)
 
 
 /*
@@ -60,7 +60,7 @@ console.log(pizza.popularity)
     get the value.
 */
 
-console.log(pizza.tags[1])
+// console.log(pizza.tags[1])
 
 /*
     Third, destructure the price off of the
@@ -70,7 +70,7 @@ console.log(pizza.tags[1])
 */
 
 let { price: newPrice } = pizza
-console.log(newPrice)
+// console.log(newPrice)
 
 /*
     Fourth, and last, destructure the category
@@ -80,7 +80,7 @@ console.log(newPrice)
 */
 
 let { category: newCategory } = pizza
-console.log(newCategory)
+// console.log(newCategory)
 
 
 //////////////////PROBLEM 3////////////////////
@@ -165,7 +165,7 @@ const filteredFood = foodArr.filter(function(arr)
         }
     }
 })
-console.log(filteredFood)
+// console.log(filteredFood)
 
 
 
@@ -212,21 +212,41 @@ function filterByProperty(property, number, type)
 {
     const filteredArr = foodArr.filter(function(arr)
     {
-        if(foodArr.type === 'above')
+        if(property === 'rating')
         {
-            if(foodArr.property > number)
+            if(type === 'above')
             {
-                return foodArr
+                return arr.rating > number
+            }
+            else
+            {
+                return arr.rating < number
             }
         }
-        else
+        else if(property === 'popularity')
         {
-            if(foodArr.property < number)
+            if(type === 'above')
             {
-                return foodArr
+                return arr.popularity > number
+            }
+            else
+            {
+                return arr.popularity < number
+            }
+        }
+        else if(property === 'price')
+        {
+            if(type === 'above')
+            {
+                return arr.price > number
+            }
+            else
+            {
+                return arr.price < number
             }
         }
     })
+    return filteredArr
 }
 
 
@@ -237,6 +257,5 @@ function filterByProperty(property, number, type)
     You'll have to console.log to see the filtered array
 */
 
-filterByProperty('rating', 2, 'above')
 
-//CODE HERE
+console.log(filterByProperty('popularity', 4, 'below'))

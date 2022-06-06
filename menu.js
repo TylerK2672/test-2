@@ -30,7 +30,15 @@
     'kids'
 */
 
-//CODE HERE
+const pizza =
+{
+    name: 'pepperoni',
+    price: 12.25,
+    category: 'Entree',
+    popularity: 1,
+    rating: 6,
+    tags: ['Party Pleaser', 'Classic', 'Kids']
+}
 
 
 
@@ -42,7 +50,7 @@
     Use dot notation to access the value.
 */
 
-//CODE HERE
+console.log(pizza.popularity)
 
 
 /*
@@ -52,8 +60,7 @@
     get the value.
 */
 
-//CODE HERE
-
+console.log(pizza.tags[1])
 
 /*
     Third, destructure the price off of the
@@ -62,8 +69,8 @@
     Print the value of your new price variable.
 */
 
-//CODE HERE
-
+let { price: newPrice } = pizza
+console.log(newPrice)
 
 /*
     Fourth, and last, destructure the category
@@ -72,7 +79,8 @@
     Print the value of your category variable. 
 */
 
-//CODE HERE
+let { category: newCategory } = pizza
+console.log(newCategory)
 
 
 //////////////////PROBLEM 3////////////////////
@@ -87,7 +95,49 @@
     data in some functions that you'll write.
 */
 
-//CODE HERE
+let foodArr = 
+[
+    {
+        name: 'cheese',
+        price: 10,
+        category: 'Entree',
+        popularity: 2,
+        rating: 7,
+        tags: ['Party Pleaser', 'Classic', 'Kids']
+    },
+    {
+        name: 'pepperoni',
+        price: 12.25,
+        category: 'Entree',
+        popularity: 1,
+        rating: 6,
+        tags: ['Party Pleaser', 'Classic', 'Kids']
+    },
+    {
+        name: 'bbq chicken',
+        price: 13.50,
+        category: 'Entree',
+        popularity: 5,
+        rating: 8,
+        tags: ['Party Pleaser', 'Fun']
+    },
+    {
+        name: 'wings',
+        price: 12.25,
+        category: 'appetizer',
+        popularity: 1,
+        rating: 9,
+        tags: ['Party Pleaser', 'Kids', 'gluten free']
+    },
+    {
+        name: 'veggie',
+        price: 12.25,
+        category: 'Entree',
+        popularity: 7,
+        rating: 7,
+        tags: ['Classic', 'gluten free']
+    }
+]
 
 
 
@@ -105,7 +155,17 @@
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+const filteredFood = foodArr.filter(function(arr) 
+{
+    for(let i = 0; i < arr.tags.length; i++)
+    {
+        if (arr.tags[i] === 'Classic')
+        {
+            return arr
+        }
+    }
+})
+console.log(filteredFood)
 
 
 
@@ -148,7 +208,26 @@
     Return the filtered array from the entire function
 */
 
-//CODE HERE
+function filterByProperty(property, number, type)
+{
+    const filteredArr = foodArr.filter(function(arr)
+    {
+        if(foodArr.type === 'above')
+        {
+            if(foodArr.property > number)
+            {
+                return foodArr
+            }
+        }
+        else
+        {
+            if(foodArr.property < number)
+            {
+                return foodArr
+            }
+        }
+    })
+}
 
 
 /*
@@ -157,5 +236,7 @@
 
     You'll have to console.log to see the filtered array
 */
+
+filterByProperty('rating', 2, 'above')
 
 //CODE HERE

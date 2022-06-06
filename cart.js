@@ -35,7 +35,14 @@ const cart = [
 
 //CODE HERE
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
+function returnSum(total, nextAddition)
+{
+    return total + nextAddition.price
+}
+
+const summedPrice = cart.reduce(returnSum, 0)
+
+console.log(summedPrice)
 
 
 //////////////////PROBLEM 2////////////////////
@@ -54,7 +61,12 @@ const cart = [
 */
 
 //CODE HERE
+function calcFinalPrice(cartTotal, couponValue, tax)
+{
+    return cartTotal + (cartTotal * tax) - couponValue
+}
 
+console.log(calcFinalPrice(summedPrice, 2, .06))
 
 
 //////////////////PROBLEM 3////////////////////
@@ -78,7 +90,13 @@ const cart = [
 */
 
 /*
-    TEXT ANSWER HERE
+    CUSTOMER OBJECT
+
+    ID(int) - to differentiate one customer from another (because an id is a number)
+    Name(string) - to be able to customize messages to the customer (because a name is a string)
+    Age(int) - to be able to accomodate to customers wants (because age is a number)
+    Gender(int) - to be able to accomodate to customers wants (so that in the database the computer wont differentiate 'man', 'male' and 'guy' and will include them in the same section)
+    Past Orders(array of strings) - to be able to make informed decisions on what to offer the guest (to keep track of all of their past orders)
 
 */
 
@@ -87,4 +105,11 @@ const cart = [
     guidelines.
 */
 
-//CODE HERE
+const customer = 
+{
+    idNum: 1,
+    name: 'Tyler',
+    Age: 21,
+    Gender: 1,
+    pastOrders: ['Cheeseburger', 'Double Bacon Cheeseburger', 'Cheeseburger']
+}
